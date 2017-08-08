@@ -4,10 +4,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-#loading-spinner {
+.spinner-span {
   display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+#spinner-bar {
+  display: inline-block;
+  position: relative;
   width: 40px;
   height: 10px;
   background: #222;
@@ -16,10 +26,19 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+  z-index: -1;
+}
+.spinner-mask {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 10px;
+  background: #FFF;
+  z-index: 1;
 }
 
 @keyframes loading {
-  0% {width: 8px; margin-right: 32px;}
-  50% {width: 40px; margin: 0;}
-  100% {width: 8px; margin-left: 32px;}
+  0% {transform: translateX(32px);}
+  100% {transform: translateX(-32px);}
 }
+
